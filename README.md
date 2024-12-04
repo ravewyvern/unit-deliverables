@@ -4,4 +4,4 @@ A sleep score calculator
 ## UD 2
 A inventory management system
 ## UD 3
-Work in progress
+An upgraded inventory management system
