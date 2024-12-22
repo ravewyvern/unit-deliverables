@@ -86,7 +86,7 @@ public class UD3Main
     //loop through adding items to the inventory
     while (continueSetup == 'Y' || continueSetup == 'y') 
     {
-      commandsV2.addItem();
+      CommandsV2.addItem();
       continueSetup = UtilityBelt.readChar("Would you like to add another item to the inventory? (y/N): ", "YNyn");
     }
 
@@ -118,19 +118,19 @@ public class UD3Main
   public static void commandSearch (String inputCommand) {
     switch (inputCommand.toLowerCase()) {
       case "help":
-        commandsV2.help();
+        CommandsV2.help();
         break;
       case "add":
-        commandsV2.addItem();
+        CommandsV2.addItem();
         break;
       case "view":
-        commandsV2.viewInventory(inventory);
+        CommandsV2.viewInventory(inventory);
         break;
       case "remove":
-        commandsV2.removeItem();
+        CommandsV2.removeItem();
         break;
       case "update":
-        commandsV2.updateItem();
+        CommandsV2.updateItem();
         break;
       case "exit":
         System.out.println("Exiting IMS2...");
@@ -141,10 +141,10 @@ public class UD3Main
         if (debugMode) {
           //useful if you want to add items to the inventory without going through the prompts
           System.out.println("Debug mode is enabled, adding items to inventory...");
-          commandsV2.addItem("Apple", 0.99, 10, "Fruit");
-          commandsV2.addItem("Banana", 0.49, 20, "Yellow");
-          commandsV2.addItem("Orange", 0.79, 15, "Citrus");
-          commandsV2.addItem("Grapes", 2.99, 5, "Fruit");
+          CommandsV2.addItem("Apple", 0.99, 10, "Fruit");
+          CommandsV2.addItem("Banana", 0.49, 20, "Yellow");
+          CommandsV2.addItem("Orange", 0.79, 15, "Citrus");
+          CommandsV2.addItem("Grapes", 2.99, 5, "Fruit");
           break;
         }
       case "debug-resize":

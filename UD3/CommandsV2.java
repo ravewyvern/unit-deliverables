@@ -21,7 +21,7 @@
  * -----------------------------------------
  */
 
-public class commandsV2 {
+public class CommandsV2 {
 
     /**
      * Displays a list of all available commands.
