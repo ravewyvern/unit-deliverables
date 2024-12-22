@@ -94,7 +94,7 @@ public class UD2Main
   public static int[] quantities;
   public static double[] prices;
 
-  public static void Main()
+  public static void main(String[] args)
   {
     /***** DECLARATION SECTION *****/
 
@@ -193,6 +193,7 @@ public class UD2Main
         System.out.println("Command not found, type 'help' for a list of commands");
         break;
     }
+    Main.runner();
   }
 
   /**

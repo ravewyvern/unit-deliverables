@@ -67,7 +67,7 @@ public class UD3Main
   public static final boolean debugMode = false; //set to true to enable debug mode for testing
   public static Item[] inventory;
 
-  public static void Main()
+  public static void main(String[] args)
   {
 
     /***** INITIALIZATION SECTION *****/
@@ -86,7 +86,7 @@ public class UD3Main
     //loop through adding items to the inventory
     while (continueSetup == 'Y' || continueSetup == 'y') 
     {
-      commands.addItem();
+      commandsV2.addItem();
       continueSetup = UtilityBelt.readChar("Would you like to add another item to the inventory? (y/N): ", "YNyn");
     }
 
@@ -118,19 +118,19 @@ public class UD3Main
   public static void commandSearch (String inputCommand) {
     switch (inputCommand.toLowerCase()) {
       case "help":
-        commands.help();
+        commandsV2.help();
         break;
       case "add":
-        commands.addItem();
+        commandsV2.addItem();
         break;
       case "view":
-        commands.viewInventory(inventory);
+        commandsV2.viewInventory(inventory);
         break;
       case "remove":
-        commands.removeItem();
+        commandsV2.removeItem();
         break;
       case "update":
-        commands.updateItem();
+        commandsV2.updateItem();
         break;
       case "exit":
         System.out.println("Exiting IMS2...");
@@ -141,10 +141,10 @@ public class UD3Main
         if (debugMode) {
           //useful if you want to add items to the inventory without going through the prompts
           System.out.println("Debug mode is enabled, adding items to inventory...");
-          commands.addItem("Apple", 0.99, 10, "Fruit");
-          commands.addItem("Banana", 0.49, 20, "Yellow");
-          commands.addItem("Orange", 0.79, 15, "Citrus");
-          commands.addItem("Grapes", 2.99, 5, "Fruit");
+          commandsV2.addItem("Apple", 0.99, 10, "Fruit");
+          commandsV2.addItem("Banana", 0.49, 20, "Yellow");
+          commandsV2.addItem("Orange", 0.79, 15, "Citrus");
+          commandsV2.addItem("Grapes", 2.99, 5, "Fruit");
           break;
         }
       case "debug-resize":
@@ -173,6 +173,7 @@ public class UD3Main
         System.out.println("Command not found, type 'help' for a list of commands");
         break;
     }
+    Main.runner();
   }
 
   /**

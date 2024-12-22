@@ -43,7 +43,7 @@ public class UD1Main
 
   /***** CONSTANT SECTION *****/
 
-  public static void Main()
+  public static void main(String[] args)
   {
     /***** DECLARATION SECTION *****/
     // Input your age here
@@ -95,6 +95,7 @@ public class UD1Main
     System.out.print(UD1Main.dividerLine());
     System.out.printf("%8sYou Describe your sleep as:\n", "");
     System.out.printf("%12s%s\n", "", sleepDescription);
+    Main.runner();
   }
   /***** STATIC METHODS *****/
 
