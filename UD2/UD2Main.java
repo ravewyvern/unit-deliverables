@@ -85,7 +85,7 @@
  *	<ex: Scanner= used for console input>
  *********************************************/
 
-public class Main
+public class UD2Main
 {
 
   /***** CONSTANT SECTION *****/
@@ -94,7 +94,7 @@ public class Main
   public static int[] quantities;
   public static double[] prices;
 
-  public static void main(String[] args)
+  public static void Main()
   {
     /***** DECLARATION SECTION *****/
 

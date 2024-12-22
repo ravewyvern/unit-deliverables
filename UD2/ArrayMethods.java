@@ -82,7 +82,7 @@ public class ArrayMethods
       //Creates a new array with the new size and copies the elements
       //from the old array to the new array
       int[] newArray = new int[array.length + changeSize];
-      int elementsToCopy = Main.mathMin(array.length, newArray.length);
+      int elementsToCopy = UD2Main.mathMin(array.length, newArray.length);
       for (int i = 0; i < elementsToCopy; i++) {
           newArray[i] = array[i];
       }
@@ -104,7 +104,7 @@ public class ArrayMethods
       //Creates a new array with the new size and copies the elements
       //from the old array to the new array
       double[] newArray = new double[array.length + changeSize];
-      int elementsToCopy = Main.mathMin(array.length, newArray.length);
+      int elementsToCopy = UD2Main.mathMin(array.length, newArray.length);
       for (int i = 0; i < elementsToCopy; i++) {
           newArray[i] = array[i];
       }
@@ -126,7 +126,7 @@ public class ArrayMethods
       //Creates a new array with the new size and copies the elements
       //from the old array to the new array
       String[] newArray = new String[array.length + changeSize];
-      int elementsToCopy = Main.mathMin(array.length, newArray.length);
+      int elementsToCopy = UD2Main.mathMin(array.length, newArray.length);
       for (int i = 0; i < elementsToCopy; i++) {
           newArray[i] = array[i];
       }

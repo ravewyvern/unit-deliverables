@@ -38,12 +38,12 @@
 
 // <IMPORTS GO HERE - Not used for UD1>
 
-public class Main
+public class UD1Main
 {
 
   /***** CONSTANT SECTION *****/
 
-  public static void main(String[] args)
+  public static void Main()
   {
     /***** DECLARATION SECTION *****/
     // Input your age here
@@ -63,10 +63,10 @@ public class Main
 
     /***** PROCESSING SECTION *****/
     //this code calls different methods to perform calculations 
-    double totalSleepTime = Main.calculateTotalSleep(sleepRemTime, sleepLightTime, sleepDeepTime);
-    double recommendedMinSleepTime = Main.recommendedSleepTime(age, 0.28);
-    double recommendedMaxSleepTime = Main.recommendedSleepTime(age, 0.14);
-    int sleepScore = Main.calculateSleepScore(sleepRemTime, sleepLightTime, sleepDeepTime, recommendedMinSleepTime, recommendedMaxSleepTime);
+    double totalSleepTime = UD1Main.calculateTotalSleep(sleepRemTime, sleepLightTime, sleepDeepTime);
+    double recommendedMinSleepTime = UD1Main.recommendedSleepTime(age, 0.28);
+    double recommendedMaxSleepTime = UD1Main.recommendedSleepTime(age, 0.14);
+    int sleepScore = UD1Main.calculateSleepScore(sleepRemTime, sleepLightTime, sleepDeepTime, recommendedMinSleepTime, recommendedMaxSleepTime);
 
     /***** OUTPUT SECTION *****/
     //This code outputs the UI to display the info
@@ -79,20 +79,20 @@ public class Main
     System.out.printf("%15s    ```\n", "");
     System.out.printf("%15sSleep score\n", "");
     System.out.printf("%15s%4s%d\n", "", "", sleepScore);
-    System.out.print(Main.dividerLine());
+    System.out.print(UD1Main.dividerLine());
     System.out.printf("%10s90-100 = Perfect sleep\n", "");
     System.out.printf("%10s70-90 = Okay sleep\n", "");
     System.out.printf("%10s40-70 = Poor sleep\n", "");
     System.out.printf("%10s20-40 = Terrible sleep\n", "");
     System.out.printf("%10s0-20 = Go to bed right now\n", "");
-    System.out.print(Main.dividerLine());
+    System.out.print(UD1Main.dividerLine());
     System.out.printf("%12sTotal sleep time:\n", "");
     System.out.printf("%16s%.1f hours\n", "", totalSleepTime);
-    System.out.print(Main.dividerLine());
+    System.out.print(UD1Main.dividerLine());
     System.out.printf("%-10sBased on your age of %d\n", "", age);
     System.out.printf("%7syour recommended sleep time is\n", "");
     System.out.printf("%14s%.1f - %.1f hours\n", "", recommendedMinSleepTime, recommendedMaxSleepTime);
-    System.out.print(Main.dividerLine());
+    System.out.print(UD1Main.dividerLine());
     System.out.printf("%8sYou Describe your sleep as:\n", "");
     System.out.printf("%12s%s\n", "", sleepDescription);
   }

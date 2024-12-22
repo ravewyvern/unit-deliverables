@@ -35,7 +35,7 @@ public class commands {
         System.out.println("help - Display this message");
         System.out.println("exit - Exit the program");
 
-        if (Main.debugMode) {
+        if (UD3Main.debugMode) {
             System.out.println();
             System.out.println("Debug Commands:");
             System.out.println("debug-add - Add items to the inventory for testing");
@@ -117,21 +117,21 @@ public class commands {
      * @param catagory the catagory of the item
      */
     public static void addItem(String name, double price, int quantity, String catagory) {
-        int emptySlotNumber = Main.emptySlotChecker(Main.inventory);
+        int emptySlotNumber = UD3Main.emptySlotChecker(UD3Main.inventory);
 
         //if there is an empty slot in the inventory, add the item to that slot
         if (emptySlotNumber != -1) {
-            Main.inventory[emptySlotNumber] = new Item(name, price, quantity, catagory, false);
-            if (Main.debugMode) System.out.println("Item added to index " + emptySlotNumber + "with the data: " + Main.inventory[emptySlotNumber].toString());
+            UD3Main.inventory[emptySlotNumber] = new Item(name, price, quantity, catagory, false);
+            if (UD3Main.debugMode) System.out.println("Item added to index " + emptySlotNumber + "with the data: " + UD3Main.inventory[emptySlotNumber].toString());
         } else {
             //since there are no empty slots, resize the array and add the item to the new slot
-            Main.inventory = Main.resizeArray(Main.inventory, 1);
-            if (Main.debugMode) System.out.println("Resized array to " + Main.inventory.length);
+            UD3Main.inventory = UD3Main.resizeArray(UD3Main.inventory, 1);
+            if (UD3Main.debugMode) System.out.println("Resized array to " + UD3Main.inventory.length);
 
-            emptySlotNumber = Main.emptySlotChecker(Main.inventory);
-            Main.inventory[emptySlotNumber] = new Item(name, price, quantity, catagory, false);
+            emptySlotNumber = UD3Main.emptySlotChecker(UD3Main.inventory);
+            UD3Main.inventory[emptySlotNumber] = new Item(name, price, quantity, catagory, false);
 
-            if (Main.debugMode) System.out.println("Item added to index " + emptySlotNumber + "with the data: " + Main.inventory[emptySlotNumber].toString());
+            if (UD3Main.debugMode) System.out.println("Item added to index " + emptySlotNumber + "with the data: " + UD3Main.inventory[emptySlotNumber].toString());
         }
     }
 
@@ -151,9 +151,9 @@ public class commands {
      * Removes an item from the inventory by prompting the user for the item number.
      */
     public static void removeItem() {
-        int itemNumber = UtilityBelt.readInt("Enter the number of the item you would like to remove: ", 1, Main.inventory.length);
+        int itemNumber = UtilityBelt.readInt("Enter the number of the item you would like to remove: ", 1, UD3Main.inventory.length);
 
-        char confirm = UtilityBelt.readChar("Are you sure you want to remove " + Main.inventory[itemNumber - 1].getName() + "s? (y/N): ", "YNyn");
+        char confirm = UtilityBelt.readChar("Are you sure you want to remove " + UD3Main.inventory[itemNumber - 1].getName() + "s? (y/N): ", "YNyn");
 
         if (confirm == 'Y' || confirm == 'y') 
         {
@@ -170,22 +170,22 @@ public class commands {
      */
     public static void removeItem(int indexNumber) {
         //moves each item in the inventory array down one slot to fill the gap
-        for (int i = indexNumber; i < Main.inventory.length - 1; i++) 
+        for (int i = indexNumber; i < UD3Main.inventory.length - 1; i++) 
         {
-            if (Main.debugMode) System.out.println("Moving item " + (i + 1) + " to " + i);
-            Main.inventory[i] = Main.inventory[i + 1];
+            if (UD3Main.debugMode) System.out.println("Moving item " + (i + 1) + " to " + i);
+            UD3Main.inventory[i] = UD3Main.inventory[i + 1];
         }
         //resizes the inventory array to remove the last slot
-        Main.inventory = Main.resizeArray(Main.inventory, -1);
-        if (Main.debugMode) System.out.println("inventory array resized to " + Main.inventory.length);
+        UD3Main.inventory = UD3Main.resizeArray(UD3Main.inventory, -1);
+        if (UD3Main.debugMode) System.out.println("inventory array resized to " + UD3Main.inventory.length);
     }
 
     /**
      * Updates an item in the inventory by prompting the user for the item number and part to update.
      */
     public static void updateItem() {
-        int itemNumber = UtilityBelt.readInt("Enter the number of the item you would like to update: ", 1, Main.inventory.length);
-        System.out.println("What part of " + Main.inventory[itemNumber - 1].getName() +" do you want to update?");
+        int itemNumber = UtilityBelt.readInt("Enter the number of the item you would like to update: ", 1, UD3Main.inventory.length);
+        System.out.println("What part of " + UD3Main.inventory[itemNumber - 1].getName() +" do you want to update?");
 
         System.out.println("1. Name");
         System.out.println("2. Price");
@@ -197,19 +197,19 @@ public class commands {
         //switch statement to determine which part of the item to update
         switch (editNumber) {
             case 1:
-                Main.inventory[itemNumber - 1].setName(UtilityBelt.readString("Enter the new name: ", 1, 50));
+                UD3Main.inventory[itemNumber - 1].setName(UtilityBelt.readString("Enter the new name: ", 1, 50));
                 break;
             case 2:
-                Main.inventory[itemNumber - 1].setPrice(UtilityBelt.readDouble("Enter the new price: ", 1, 1000));
+                UD3Main.inventory[itemNumber - 1].setPrice(UtilityBelt.readDouble("Enter the new price: ", 1, 1000));
                 break;
             case 3:
-                Main.inventory[itemNumber - 1].setQuantity(UtilityBelt.readInt("Enter the new quantity: ", 1, 1000));
+                UD3Main.inventory[itemNumber - 1].setQuantity(UtilityBelt.readInt("Enter the new quantity: ", 1, 1000));
                 break;
             case 4:
-                Main.inventory[itemNumber - 1].setCatagory(UtilityBelt.readString("Enter the new catagory: ", 1, 50));
+                UD3Main.inventory[itemNumber - 1].setCatagory(UtilityBelt.readString("Enter the new catagory: ", 1, 50));
                 break;
         }
-        if (Main.debugMode) System.out.println("Item updated to: " + Main.inventory[itemNumber - 1].toString());
-        System.out.println(Main.inventory[itemNumber - 1].getName() + " updated successfully.");
+        if (UD3Main.debugMode) System.out.println("Item updated to: " + UD3Main.inventory[itemNumber - 1].toString());
+        System.out.println(UD3Main.inventory[itemNumber - 1].getName() + " updated successfully.");
     }
 }
